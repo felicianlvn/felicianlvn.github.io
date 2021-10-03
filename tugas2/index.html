@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pengetahuan Umum</title>
+    <style>
+        body {
+   margin: 10px;
+   padding: 20px;
+   width: auto;
+   border: 50px whitesmoke;
+   background-color: #b99aff;
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   font-family: "Times New Roman", Times, serif;
+ }
+ input[type=text] {
+  width: 25%;
+  padding: 8px 15px;
+  margin: 4px 0;
+  box-sizing: border-box;
+  border: 2px solid purple;
+  border-radius: 4px;
+}
+input[type=text]:focus {
+  background-color: lightblue;
+}
+textarea {
+  width: 25%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid purple;
+  border-radius: 4px;
+  background-color: #e8deff;
+  resize: none;
+}
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: purple;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 10px 25px;
+  text-decoration: none;
+  margin: 1px 1px;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <form method="POST" action="kirim.php">
+     <fieldset>
+        <legend><h2>DATA DIRI</h2></legend>
+        <label for="user">Nama Lengkap</label><br />
+        <input type="text" name="pengguna" id="nama" placeholder="Masukkan nama...">
+        <br />
+        <br />
+        <label for="jenis kelamin">Jenis Kelamin</label>
+        <input type="radio" name="jenis_kelamin" id="pria"><label for="pria">Laki-laki</label>
+        <input type="radio" name="jenis_kelamin" id="wanita"><label for="wanita">Perempuan</label>
+        <br />
+        <br />
+        <label for="jurusan">Jurusan</label><br />
+        <input type="text" name="jurusan" id="jurusan pengguna" placeholder="Masukkan jurusan...">
+        <br />
+        <br />
+        <label for="tahun angkatan">Stambuk</label>
+        <select name="stambuk">
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+        </select>
+    </form>
+  </fieldset>
+  <form method="POST" action="kirim.php">
+       <fieldset>
+      <legend><h2>KUIS PENGETAHUAN UMUM</h2></legend>
+      <p>1. Provinsi terluas di Indonesia adalah...</p>
+      <input type="radio" name="pertanyaan_satu" id="riau"><label for="riau">Riau</label>
+      <br />
+      <input type="radio" name="pertanyaan_satu" id="papua"><label for="papua">Papua</label>
+      <br />
+      <input type="radio" name="pertanyaan_satu" id="kalimantan_tengah"><label for="kalimantan_tengah">Kalimantan Tengah</label>
+      <br />
+      <p>2. Hari Lahir Pancasila dan Hari Kesaktian Pancasila masing-masing ditetapkan pada tanggal...</p>
+      <input type="radio" name="pertanyaan_dua" id="1_oktober_dan_1_juni"><label for="1_oktober_dan_1_juni">1 Oktober dan 1 Juni</label>
+      <br />
+      <input type="radio" name="pertanyaan_dua" id="1_juni_dan_1_oktober"><label for="1_juni_dan_1_oktober">1 Juni dan 1 Oktober</label>
+      <br />
+      <input type="radio" name="pertanyaan_dua" id="1_juni_dan_10_oktober"><label for="1_juni_dan_10_oktober">1 Juni dan 10 Oktober</label>
+      <br />
+      <p>3. Berikut ini yang merupakan lagu wajib ciptaan Ismail Marzuki adalah...</p>
+      <input type="checkbox" name="lagu1" value="rayuan_pulau_kelapa">Rayuan Pulau Kelapa
+      <br />
+      <input type="checkbox" name="lagu2" value="indonesia_pusaka">Indonesia Pusaka
+      <br />
+      <input type="checkbox" name="lagu3" value="gugur_bunga">Gugur Bunga
+      <p>4. Candi Borobudur terletak di...</p>
+      <input type="checkbox" name="kota[]" value="malang" id="kota">Malang
+      <br />
+      <input type="checkbox" name="kota[]" value="magelang" id="kota">Magelang
+      <br />
+      <input type="checkbox" name="kota[]" value="yogyakarta" id="kota">Yogyakarta
+      <p>5. Ceritakan secara singkat tentang tempat kelahiranmu!</p>
+      <textarea ols="40" rows="12" name="cerita" placeholder="Ketik di sini..."></textarea>
+        <p>
+            <input type="submit" Value="Kirim">
+            <input type="reset" Value="Reset">
+        </p>
+        </fieldset>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script>
+$('input[type=checkbox]').on('change', function(evt) {
+   if($('input[id=kota]:checked').length >= 2) {
+       this.checked = false;
+       alert('Pilih salah satu');
+   }
+});
+</script>
+</html>
